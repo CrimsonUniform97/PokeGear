@@ -12,8 +12,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.EnumHelper;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -36,9 +38,17 @@ public static EnumArmorMaterial armorPoke = EnumHelper.addArmorMaterial("POKE", 
 
 
 
+
+@SidedProxy(clientSide = "net.PokeGear.ClientProxy", serverSide = "net.PokeGear.CommonProxy")
+public static CommonProxy proxy;
+public static ClientProxy Clientproxy;
+
+
+
 @Init
 public void load(FMLInitializationEvent event) {
 
+	proxy.registerRenderThings();
 	TickRegistry.registerTickHandler(new CommonTickHandler(), Side.SERVER);
 	
 //TODO Badgecase = new ItemBadgecase(3000).setUnlocalizedName("Badgecase7");
@@ -59,7 +69,7 @@ Pokegear = new ItemPokegear(7002).setUnlocalizedName("Pokegear");
 LanguageRegistry.addName(Pokegear, "PokeGear"); 
 
 
-RunningBoots = new ItemrunningBoots(8995, armorPoke, ModLoader.addArmor("Poke"), 3).setUnlocalizedName("RunningShoes").setCreativeTab(CreativeTabs.tabTools);
+RunningBoots = new ItemrunningBoots(8995, armorPoke, proxy.addArmor("Poke"), 3).setUnlocalizedName("RunningShoes").setCreativeTab(CreativeTabs.tabCombat);
 LanguageRegistry.addName(RunningBoots, "Running Shoes");
 
 
@@ -71,6 +81,12 @@ GameRegistry.addRecipe(new ItemStack(RunningBoots), new Object[]{
     'Y', net.minecraft.block.Block.cloth,
     'Z', net.minecraft.item.Item.leather 
    });
+
+	
+
+
+
+
 	
 //Thats a good sign. Now it I know it is loading.
 }

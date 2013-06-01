@@ -24,7 +24,7 @@ public class CommonTickHandler implements ITickHandler
 				
 				if(player.getCurrentItemOrArmor(1) != null){
 					ItemStack boots = player.getCurrentItemOrArmor(1);
-					if(boots.getItem() == Basemod.RunningBoots){
+					if(boots.getItem() == Basemod.RunningBoots) {
 						player.addPotionEffect((new PotionEffect(Potion.moveSpeed.getId(), 10, 1)));
 					}
 				}
@@ -42,7 +42,7 @@ public class CommonTickHandler implements ITickHandler
 		 @Override
 		 public EnumSet<TickType> ticks() 
 		 {
-		  return EnumSet.of(TickType.PLAYER, TickType.SERVER);
+		  return EnumSet.of(TickType.PLAYER);
 		 }
 
 		@Override

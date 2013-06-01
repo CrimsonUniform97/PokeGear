@@ -30,7 +30,7 @@ public ItemWaterSprayer(int par1)
 		super(par1);		
 		this.setCreativeTab(CreativeTabs.tabTools);
 		this.setMaxStackSize(1);
-		this.setMaxDamage(64);
+		this.setMaxDamage(32);
 
 	}
 
