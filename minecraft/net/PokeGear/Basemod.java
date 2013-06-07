@@ -28,7 +28,10 @@ import cpw.mods.fml.relauncher.Side;
 public class Basemod  {
 	
 public static final String modid = "PokeGear";
+
+private static final String True = null;
     
+public static ItemSweetPoffinsFood SweetPoffinsFood; 
 public static Item Badgecase;
 public static Item Watersprayer;
 public static Item Pokegear;
@@ -73,6 +76,7 @@ RunningBoots = new ItemrunningBoots(8995, armorPoke, proxy.addArmor("Poke"), 3).
 LanguageRegistry.addName(RunningBoots, "Running Shoes");
 
 
+
 GameRegistry.addRecipe(new ItemStack(RunningBoots), new Object[]{
     "XYX",
     "Z Z",
@@ -82,17 +86,34 @@ GameRegistry.addRecipe(new ItemStack(RunningBoots), new Object[]{
     'Z', net.minecraft.item.Item.leather 
    });
 
+SweetPoffinsFood = new ItemSweetPoffinsFood(2587, 18, 4F True)IconIndex(1).setItemName("SweetPoffins"));
+LanguageRegistry.addName(SweetPoffinsFood, "Sweet Poffins");
+GameRegistry.addRecipe(new ItemStack(SweetPoffinsFood), new Object [] (
+	"XXX",
+	"XRX",
+	"XXX",
+	'X', Item.appleRed, 'R', Item.bowlSoup
+
+
+
+private ItemStack IconIndex(int i) {
+	// TODO Auto-generated method stub
+	return null;
+}});
+
+}
+
 	
 
 
 
 
 	
-//Thats a good sign. Now it I know it is loading.
+
 }
 
 
-}
+
 // TODO public GuiContainer getContainerGUI(EntityClientPlayerMP, int id, int x, int y, int z ){
 	//switch(id){
 	//case 30:
